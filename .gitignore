@@ -1,3 +1,16 @@
+.dist/
+.eslintcache
+
+# test coverage
+coverage
+
+# application data
+appdata/
+
+# ignore personal playgrounds
+**/playgrounds/*
+!**/playgrounds/hello
+
 # Logs
 logs
 *.log
@@ -123,8 +136,14 @@ dist
 .vscode-test
 
 # yarn v2
+.yarn/*
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 .pnp.*

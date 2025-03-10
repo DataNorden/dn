@@ -1,0 +1,49 @@
+{
+  "name": "dn",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "play": "yarn workspace playground build && .dist/playground/main.cjs",
+    "test": "s/dk/test.sh",
+    "lint": "echo '\nLINT...' && yarn workspaces foreach --exclude playground -Apt run lint",
+    "build": "echo '\nBUILD...' && yarn workspaces foreach -Apt run build --verbose",
+    "docs": "echo '\nDOCS...' && yarn workspaces foreach -Apt run docs",
+    "typecheck": "echo '\nTYPECHECK...' && yarn tsc -p tsconfig.base.json --noEmit",
+    "format": "echo '\nFORMAT...' && prettier {.devcontainer,.github,.vscide,services,s,docs,apps,libs} -w --l",
+    "precommit": "s/dk/precommit.sh"
+  },
+  "packageManager": "yarn@4.3.1",
+  "dependencies": {
+    "source-map-support": "^0.5.21"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@types/eslint": "^9",
+    "@types/source-map-support": "^0.5.10",
+    "@vitest/coverage-istanbul": "^2.1.8",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
+    "corepack": "^0.29.3",
+    "depcheck": "^1.4.7",
+    "esbuild": "^0.23.0",
+    "esbuild-plugin-copy": "^2.1.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "glob": "^11.0.0",
+    "globals": "^15.8.0",
+    "prettier": "3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.17.0",
+    "vite": "^6.0.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^2.1.8"
+  },
+  "resolutions": {
+    "yauzl": "^3.1.3"
+  }
+}
