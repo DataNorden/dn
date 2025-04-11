@@ -10,7 +10,7 @@
  * Returns: `{ get one(): number }`
  */
 export type InterfacePropsToPropertyGetterMethods<T extends object> = {
-    [K in keyof Required<T>]: () => T[K];
+  [K in keyof Required<T>]: () => T[K];
 };
 /**
  * Takes an interface with properties and returns a new interface
@@ -24,7 +24,7 @@ export type InterfacePropsToPropertyGetterMethods<T extends object> = {
  * Returns: `{ set one(): void }`
  */
 export type InterfacePropsToPropertySetterMethods<T extends object> = Required<{
-    [K in keyof Required<T>]: (this: null, value: T[K]) => T;
+  [K in keyof Required<T>]: (this: null, value: T[K]) => T;
 }>;
 /**
  * Takes an interface with properties and returns a new interface
@@ -39,7 +39,9 @@ export type InterfacePropsToPropertySetterMethods<T extends object> = Required<{
  * Returns: `{ one(): this,    two(): this   }`
  */
 export type InterfacePropsToChainableSetterMethods<T extends object, This = null> = {
-    [K in keyof Required<T> as K]: null extends This ? (value: T[K]) => T : (this: This, value: T[K]) => T;
+  [K in keyof Required<T> as K]: null extends This
+    ? (value: T[K]) => T
+    : (this: This, value: T[K]) => T;
 };
 /**
  * Takes an interface with properties and returns a new interface
@@ -54,7 +56,9 @@ export type InterfacePropsToChainableSetterMethods<T extends object, This = null
  * Returns: `{ getOne(): number,  getTwo(): string | undefined }`
  */
 export type InterfacePropsToSetterMethods<T extends object, This = null> = Required<{
-    [K in keyof Required<T> as `set${Capitalize<string & K>}`]: null extends This ? (value: T[K]) => T : (this: This, value: T[K]) => T;
+  [K in keyof Required<T> as `set${Capitalize<string & K>}`]: null extends This
+    ? (value: T[K]) => T
+    : (this: This, value: T[K]) => T;
 }>;
 /**
  * Takes an interface with properties and returns a new interface
@@ -69,7 +73,9 @@ export type InterfacePropsToSetterMethods<T extends object, This = null> = Requi
  * Returns: `{ getOne(): number,  getTwo(): string | undefined }`
  */
 export type InterfacePropsToGetterMethods<T extends object, This = null> = Required<{
-    [K in keyof T as `get${Capitalize<string & K>}`]: null extends This ? () => T[K] : (this: This) => T[K];
+  [K in keyof T as `get${Capitalize<string & K>}`]: null extends This
+    ? () => T[K]
+    : (this: This) => T[K];
 }>;
 /**
  * Takes an interface with properties and returns a new interface
@@ -85,5 +91,7 @@ export type InterfacePropsToGetterMethods<T extends object, This = null> = Requi
  * Returns: `{ one(): this,    two(): this   }`
  */
 export type InterfacePropsToHasBooleanMethods<T extends object, This = null> = Required<{
-    [K in keyof T as `has${Capitalize<string & K>}`]: null extends This ? () => boolean : (this: This) => boolean;
+  [K in keyof T as `has${Capitalize<string & K>}`]: null extends This
+    ? () => boolean
+    : (this: This) => boolean;
 }>;

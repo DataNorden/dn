@@ -1,4 +1,7 @@
-.dist/
+apps/devkit
+libs/cli
+
+.dist
 .eslintcache
 
 # test coverage

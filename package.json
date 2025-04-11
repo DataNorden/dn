@@ -7,23 +7,37 @@
     "libs/*"
   ],
   "scripts": {
-    "play": "yarn workspace playground build && .dist/playground/main.cjs",
+    "play": "yarn workspace playground build && node .dist/playground/main.cjs",
+    "dk": "node scripts/tsrun.mjs apps/devkit/src/main.ts",
+    "clickup": "node scripts/tsrun.mjs apps/clickup/src/main.ts",
+    "ts": "node scripts/tsrun.mjs",
     "test": "s/dk/test.sh",
     "lint": "echo '\nLINT...' && yarn workspaces foreach --exclude playground -Apt run lint",
     "build": "echo '\nBUILD...' && yarn workspaces foreach -Apt run build --verbose",
     "docs": "echo '\nDOCS...' && yarn workspaces foreach -Apt run docs",
     "typecheck": "echo '\nTYPECHECK...' && yarn tsc -p tsconfig.base.json --noEmit",
-    "format": "echo '\nFORMAT...' && prettier {.devcontainer,.github,.vscide,services,s,docs,apps,libs} -w --l",
-    "precommit": "s/dk/precommit.sh"
+    "format": "echo '\nFORMAT...' && prettier {.devcontainer,.github,.vscide,services,s,docs,apps,libs} -w --l"
   },
   "packageManager": "yarn@4.3.1",
   "dependencies": {
+    "@commander-js/extra-typings": "^13.1.0",
+    "commander": "^13.1.0",
+    "istextorbinary": "^9.5.0",
+    "lodash": "^4.17.21",
+    "memoizee": "^0.4.17",
+    "mnemonist": "^0.40.3",
+    "object-hash": "^3.0.0",
+    "object-traversal": "^1.0.1",
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
+    "@sinclair/typebox-codegen": "^0.10.5",
     "@types/eslint": "^9",
+    "@types/memoizee": "^0.4.11",
+    "@types/object-hash": "^3.0.6",
     "@types/source-map-support": "^0.5.10",
+    "@types/strip-comments": "^2.0.4",
     "@vitest/coverage-istanbul": "^2.1.8",
     "@vitest/coverage-v8": "^2.1.8",
     "@vitest/ui": "^2.1.8",
@@ -33,15 +47,20 @@
     "esbuild-plugin-copy": "^2.1.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "fs-extra": "^11.3.0",
     "glob": "^11.0.0",
     "globals": "^15.8.0",
     "prettier": "3.3.3",
     "rimraf": "^6.0.1",
+    "schema2typebox": "^1.7.5",
+    "strip-comments": "^2.0.1",
+    "type-fest": "^4.37.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.17.0",
     "vite": "^6.0.3",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "walkdir": "^0.4.1"
   },
   "resolutions": {
     "yauzl": "^3.1.3"

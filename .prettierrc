@@ -2,5 +2,6 @@
   "singleQuote": true,
   "printWidth": 95,
   "arrowParens": "always",
-  "proseWrap": "preserve"
+  "proseWrap": "preserve",
+  "semi": false
 }

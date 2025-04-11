@@ -1,0 +1,38 @@
+{
+  "name": "clickup",
+  "version": "0.0.0",
+  "packageManager": "yarn@4.3.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "lint": "yarn run eslint . --fix --cache"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@types/eslint": "^9",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.17.16",
+    "@types/node": "^20.14.12",
+    "@types/object-hash": "^3",
+    "@types/retry": "^0",
+    "@types/source-map-support": "^0.5.10",
+    "@types/toposort": "^2",
+    "@types/uuid": "^10",
+    "esbuild": "^0.23.0",
+    "eslint": "^8.57.0",
+    "globals": "^15.8.0",
+    "prettier": "3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.17.0",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@commander-js/extra-typings": "^13.1.0",
+    "axios": "^1.8.4",
+    "commander": "^13.1.0",
+    "dotenv": "^16.5.0",
+    "fs-extra": "^11.3.0",
+    "source-map-support": "^0.5.21"
+  }
+}

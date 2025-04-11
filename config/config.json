@@ -1,0 +1,39 @@
+{
+  "publisher": "datanorden",
+  "parent": "devkit",
+  "name": "search",
+  "default": {
+    "args": ["search", ["asd"]],
+    "options": {
+      "usePresets": []
+    },
+    "globalOptions": {
+      "logLevel": "info",
+      "usePresets": [],
+      "editorEdit": "code -w -n"
+    }
+  },
+  "presets": {
+    "my_preset": {
+      "title": "my_preset",
+      "args": [],
+      "options": {
+        "usePresets": []
+      },
+      "globalOptions": {
+        "logLevel": "info",
+        "usePresets": []
+      }
+    },
+    "my_preset_1742361917198": {
+      "title": "my_preset",
+      "options": {
+        "usePresets": []
+      },
+      "globalOptions": {
+        "logLevel": "info",
+        "usePresets": []
+      }
+    }
+  }
+}

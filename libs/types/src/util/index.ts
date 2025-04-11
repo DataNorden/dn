@@ -1,3 +1,4 @@
+export * from './Arrayable';
 export * from './EntryOf';
 export * from './IntersectMany';
 export * from './KeysOf';

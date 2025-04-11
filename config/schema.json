@@ -1,0 +1,350 @@
+{
+  "$id": "Config",
+  "type": "object",
+  "definitions": {
+    "args": {
+      "$id": "UserArgs",
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "minLength": 0,
+              "type": "string"
+            },
+            "title": "[0]:usePresets",
+            "description": ""
+          }
+        ]
+      }
+    }
+  },
+  "properties": {
+    "publisher": {
+      "default": "datanorden",
+      "type": "string"
+    },
+    "parent": {
+      "default": "devkit",
+      "type": "string"
+    },
+    "name": {
+      "default": "search",
+      "type": "string"
+    },
+    "default": {
+      "$id": "Defaults",
+
+      "type": "object",
+      "properties": {
+        "args": {
+          "$ref": "#/definitions/args"
+        },
+        "options": {
+          "$id": "UserOptions",
+          "default": {},
+          "type": "object",
+          "properties": {
+            "dir": {
+              "type": "string",
+              "title": "-d, --dir <root>",
+              "description": "dir: "
+            },
+            "path": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "-p, --path <search...>",
+              "description": "path: "
+            },
+            "name": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "-n, --name <search...>",
+              "description": "name: "
+            },
+            "content": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "-c, --content <search...>",
+              "description": "content: "
+            },
+            "skipDirpaths": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "-P, --skip-dirpaths <search...>",
+              "description": "skipDirpaths: "
+            },
+            "skipDirnames": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "title": "-N, --skip-dirnames <search...>",
+              "description": "skipDirnames: "
+            },
+            "maxResults": {
+              "type": "string",
+              "title": "-m, --max-results <int>",
+              "description": "maxResults: "
+            },
+            "maxSize": {
+              "type": "string",
+              "title": "-s, --max-size <kB>",
+              "description": "maxSize: "
+            },
+            "outfile": {
+              "type": "string",
+              "title": "-o, --outfile <path>",
+              "description": "outfile: "
+            },
+            "ignoreCase": {
+              "type": "string",
+              "title": "-I, --no-ignore-case",
+              "description": "ignoreCase: "
+            },
+            "logLevel": {
+              "type": "string",
+              "title": "-L, --log-level <level>",
+              "description": "logLevel: "
+            },
+            "silent": {
+              "type": "boolean",
+              "title": "-S, --silent",
+              "description": "silent: "
+            },
+            "debug": {
+              "type": "boolean",
+              "title": "-D, --debug",
+              "description": "debug: "
+            },
+            "writePreset": {
+              "type": "string",
+              "title": "-W, --write-preset <name>",
+              "description": "writePreset: "
+            }
+          }
+        },
+        "globalOptions": {
+          "$id": "GlobalUserOptions",
+          "default": {},
+          "type": "object",
+          "properties": {
+            "usePresets": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "logLevel": {
+              "anyOf": [
+                {
+                  "const": "silent",
+                  "type": "string"
+                },
+                {
+                  "const": "error",
+                  "type": "string"
+                },
+                {
+                  "const": "data",
+                  "type": "string"
+                },
+                {
+                  "const": "info",
+                  "type": "string"
+                },
+                {
+                  "const": "debug",
+                  "type": "string"
+                }
+              ]
+            },
+            "editorStart": {
+              "title": "Launch new text editor",
+              "description": "Shell command that starts the preferred text editor. It is expected that its first argument can be a filepath like most editors.",
+              "type": "string"
+            },
+            "editorEdit": {
+              "title": "Edit in text editor",
+              "description": "Shell command that starts the preferred text editor so that the shell will wait for the editor process to terminate. Used when command-line opens something in editor and waits for user. It is expected that its first argument can be a filepath like most editors.",
+              "type": "string"
+            }
+          },
+          "required": ["logLevel"]
+        }
+      },
+      "required": ["args", "options", "globalOptions"]
+    },
+    "presets": {
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "args": {
+              "$ref": "#/definitions/args"
+            },
+            "options": {
+              "type": "object",
+              "examples": [{}],
+              "properties": {
+                "dir": {
+                  "type": "string",
+                  "title": "-d, --dir <root>",
+                  "description": "dir: "
+                },
+                "path": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "-p, --path <search...>",
+                  "description": "path: "
+                },
+                "name": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "-n, --name <search...>",
+                  "description": "name: "
+                },
+                "content": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "-c, --content <search...>",
+                  "description": "content: "
+                },
+                "skipDirpaths": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "-P, --skip-dirpaths <search...>",
+                  "description": "skipDirpaths: "
+                },
+                "skipDirnames": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "-N, --skip-dirnames <search...>",
+                  "description": "skipDirnames: "
+                },
+                "maxResults": {
+                  "type": "string",
+                  "title": "-m, --max-results <int>",
+                  "description": "maxResults: "
+                },
+                "maxSize": {
+                  "type": "string",
+                  "title": "-s, --max-size <kB>",
+                  "description": "maxSize: "
+                },
+                "outfile": {
+                  "type": "string",
+                  "title": "-o, --outfile <path>",
+                  "description": "outfile: "
+                },
+                "ignoreCase": {
+                  "type": "string",
+                  "title": "-I, --no-ignore-case",
+                  "description": "ignoreCase: "
+                },
+                "logLevel": {
+                  "type": "string",
+                  "title": "-L, --log-level <level>",
+                  "description": "logLevel: "
+                },
+                "silent": {
+                  "type": "boolean",
+                  "title": "-S, --silent",
+                  "description": "silent: "
+                },
+                "debug": {
+                  "type": "boolean",
+                  "title": "-D, --debug",
+                  "description": "debug: "
+                },
+                "writePreset": {
+                  "type": "string",
+                  "title": "-W, --write-preset <name>",
+                  "description": "writePreset: "
+                }
+              }
+            },
+            "globalOptions": {
+              "type": "object",
+              "examples": [{}],
+              "properties": {
+                "usePresets": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "examples": [[]]
+                },
+                "logLevel": {
+                  "anyOf": [
+                    {
+                      "const": "silent",
+                      "type": "string"
+                    },
+                    {
+                      "const": "error",
+                      "type": "string"
+                    },
+                    {
+                      "const": "data",
+                      "type": "string"
+                    },
+                    {
+                      "const": "info",
+                      "type": "string"
+                    },
+                    {
+                      "const": "debug",
+                      "type": "string"
+                    }
+                  ],
+                  "examples": ["info"]
+                },
+                "editorStart": {
+                  "title": "Launch new text editor",
+                  "description": "Shell command that starts the preferred text editor. It is expected that its first argument can be a filepath like most editors.",
+                  "type": "string",
+                  "examples": ["code -n"]
+                },
+                "editorEdit": {
+                  "title": "Edit in text editor",
+                  "description": "Shell command that starts the preferred text editor so that the shell will wait for the editor process to terminate. Used when command-line opens something in editor and waits for user. It is expected that its first argument can be a filepath like most editors.",
+                  "type": "string",
+                  "examples": ["code -w -n"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["publisher", "parent", "name", "default", "presets"]
+}

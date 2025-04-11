@@ -1,5 +1,5 @@
-export * as enums from './enums';
-export * as interfaces from './interfaces';
-export * as lib from './lib';
-export * as types from './types';
-export * as util from './util';
+export * from './enums';
+export * from './interfaces';
+export * from './lib';
+export * from './types';
+export * from './util';

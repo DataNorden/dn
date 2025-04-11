@@ -7,5 +7,11 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
   "eslint.nodePath": ".yarn/sdks",
-  "typescript.experimental.expandableHover": true
+  "typescript.experimental.expandableHover": true,
+  "json.schemas": [
+    {
+      "url": "file:///C:/Users/bemoj/AppData/Roaming/datanorden/devkit/search/schema.json", // Path to the schema
+      "fileMatch": ["config/config.json"] // The file that should use the schema
+    }
+  ]
 }

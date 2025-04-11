@@ -2,7 +2,11 @@
   "exclude": ["apps/playground/src/playgrounds/**/*"],
   "compilerOptions": {
     "paths": {
-      "@dn/types": ["./libs/types/src/index.ts"]
+      "@dn/types": ["./libs/types/src/index.ts"],
+      "@dn/types/*": ["./libs/types/src/lib/*.ts"],
+      "@dn/fs/*": ["./libs/fs/src/*/index.ts"],
+      "@dn/fspath/*": ["./libs/fspath/src/lib/*.ts"],
+      "@dn/object/*": ["./libs/object/src/lib/*.ts"]
     },
 
     /* Visit https://aka.ms/tsconfig to read more about this file */

@@ -4,3 +4,4 @@ export * from './Primitive';
 export * from './StringKeyObject';
 export * from './StringValObject';
 export * from './UnknownValueObject';
+export * from './NotUndefined';

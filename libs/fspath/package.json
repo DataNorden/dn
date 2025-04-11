@@ -1,0 +1,29 @@
+{
+  "name": "@dn/fspath",
+  "version": "1.1.0",
+  "packageManager": "yarn@4.3.1",
+  "private": true,
+  "type": "module",
+  "module": "src/index.ts",
+  "scripts": {
+    "lint": "yarn run eslint . --fix --cache",
+    "build": "node esbuild.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@types/eslint": "^9",
+    "@types/node": "^20.14.12",
+    "esbuild": "^0.23.0",
+    "eslint": "^8.57.0",
+    "globals": "^15.8.0",
+    "prettier": "3.3.3",
+    "tsc": "^2.0.4",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.17.0",
+    "vitest": "^2.1.8"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/lib/*.ts"
+  }
+}

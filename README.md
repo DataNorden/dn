@@ -1,3 +1,13 @@
+# introduction
+
+try:
+
+```bash
+yarn clickup
+```
+
+
+### old notes
 ClI værktøjer i egen folder.
 
 project struktur:
@@ -26,4 +36,4 @@ Technologies:
 - Codecov $5
 - Redis $5
 - Github Actions $0
--  
+-
