@@ -76,7 +76,7 @@ clickup
   .description('Create a new task.')
   .addArgument(
     new Argument(
-      '[name]',
+      '[name...]',
       'Task title. Omit for ´name´ & ´description´ in editor. line1 parsed as ´name´',
     ),
   )
@@ -111,13 +111,13 @@ clickup
       if (!cmd.processedArgs.flat(2).join('').trim()) {
         const lines = await getEditorInput(opts)
         if (!lines) return
-        name = name || lines.shift()!
+        name = [name.join(' ') || lines.shift()!]
         const _ = (opts.description as string[]).push(lines.join('\n').trim())
       }
 
       // payload
       const data = {} as any
-      if (name) data.name = name
+      data.name = name.join(' ')
       data.description = (opts.description as string[]).join(' ')
       data.status = STATUS[opts.status]
       data.priority = PRIORITY[opts.priority]
