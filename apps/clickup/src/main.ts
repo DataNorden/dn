@@ -9,7 +9,7 @@ import { priorityKeys, statusKeys, listKeys, LIST, STATUS, PRIORITY } from './ty
  */
 const clickup = new Command('clickup')
   .version('0.0.1')
-  .summary('Clickup CLI Utils')
+  .description('Clickup CLI Utils')
   .configureHelp({
     helpWidth: process.stdout.columns ?? 80,
     showGlobalOptions: true, //
@@ -35,7 +35,7 @@ const clickup = new Command('clickup')
   )
   .addOption(
     new Option('-N, --dotEnv <filepath>', '.env filepath.') //
-      .default('.env'),
+      .default('./.env'),
   )
   .addOption(
     new Option('-D, --debug', 'Output debug information'), //
@@ -73,7 +73,7 @@ const clickup = new Command('clickup')
 clickup
   .command('add')
   .alias('a')
-  .summary('Create a new task.')
+  .description('Create a new task.')
   .addArgument(
     new Argument(
       '[name]',
